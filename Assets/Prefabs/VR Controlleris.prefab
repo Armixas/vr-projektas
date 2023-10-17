@@ -4328,7 +4328,7 @@ MonoBehaviour:
   m_EnableStrafe: 1
   m_EnableFly: 0
   m_UseGravity: 1
-  m_GravityApplicationMode: 0
+  m_GravityApplicationMode: 1
   m_ForwardSource: {fileID: 1758287151854770470}
   m_LeftHandMoveAction:
     m_UseReference: 1
@@ -4451,8 +4451,8 @@ MonoBehaviour:
   m_RightHandTurnStyle: 0
   m_EnableComfortMode: 0
   m_ComfortMode: {fileID: 5438129960881477610}
-  m_UseGravity: 0
-  m_EnableFly: 1
+  m_UseGravity: 1
+  m_EnableFly: 0
   m_EnableGrabMovement: 0
 --- !u!1 &6214796018399318259
 GameObject:
