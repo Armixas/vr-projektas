@@ -70,7 +70,7 @@ namespace UnityEngine.XR.Content.Interaction
         [SerializeField]
         [Tooltip("Stores the toggle lever used to choose the turn style between continuous and snap for the right hand.")]
         XRLever m_RightHandTurnStyleToggle;
-
+        /*
         [SerializeField]
         [Tooltip("Stores the Slider used to set the move speed of continuous movement.")]
         XRSlider m_MoveSpeedSlider;
@@ -154,7 +154,7 @@ namespace UnityEngine.XR.Content.Interaction
         [SerializeField]
         [Tooltip("The label that shows the current scaling toggle value.")]
         TextMeshPro m_ScalingLabel;
-
+        */
         void ConnectControlEvents()
         {
             m_LeftHandLocomotionTypeToggle.onLeverActivate.AddListener(EnableLeftHandMoveAndStrafe);
@@ -171,7 +171,7 @@ namespace UnityEngine.XR.Content.Interaction
             m_LeftHandTurnStyleToggle.onLeverDeactivate.AddListener(EnableLeftHandSnapTurn);
             m_RightHandTurnStyleToggle.onLeverActivate.AddListener(EnableRightHandContinuousTurn);
             m_RightHandTurnStyleToggle.onLeverDeactivate.AddListener(EnableRightHandSnapTurn);
-
+            /*
             m_MoveSpeedSlider.onValueChange.AddListener(SetMoveSpeed);
             m_StrafeToggle.onPress.AddListener(EnableStrafe);
             m_StrafeToggle.onRelease.AddListener(DisableStrafe);
@@ -192,6 +192,7 @@ namespace UnityEngine.XR.Content.Interaction
             m_MoveRatioSlider.onValueChange.AddListener(SetGrabMoveRatio);
             m_ScalingToggle.onPress.AddListener(EnableScaling);
             m_ScalingToggle.onRelease.AddListener(DisableScaling);
+            */
         }
 
         void DisconnectControlEvents()
@@ -210,7 +211,7 @@ namespace UnityEngine.XR.Content.Interaction
             m_LeftHandTurnStyleToggle.onLeverDeactivate.RemoveListener(EnableLeftHandSnapTurn);
             m_RightHandTurnStyleToggle.onLeverActivate.RemoveListener(EnableRightHandContinuousTurn);
             m_RightHandTurnStyleToggle.onLeverDeactivate.RemoveListener(EnableRightHandSnapTurn);
-
+            /*
             m_MoveSpeedSlider.onValueChange.RemoveListener(SetMoveSpeed);
             m_StrafeToggle.onPress.RemoveListener(EnableStrafe);
             m_StrafeToggle.onRelease.RemoveListener(DisableStrafe);
@@ -231,6 +232,7 @@ namespace UnityEngine.XR.Content.Interaction
             m_MoveRatioSlider.onValueChange.RemoveListener(SetGrabMoveRatio);
             m_ScalingToggle.onPress.RemoveListener(EnableScaling);
             m_ScalingToggle.onRelease.RemoveListener(DisableScaling);
+            */
         }
 
         void InitializeControls()
@@ -245,7 +247,7 @@ namespace UnityEngine.XR.Content.Interaction
 
             m_LeftHandTurnStyleToggle.value = (m_Manager.leftHandTurnStyle == LocomotionManager.TurnStyle.Smooth);
             m_RightHandTurnStyleToggle.value = (m_Manager.rightHandTurnStyle == LocomotionManager.TurnStyle.Smooth);
-
+            /*
             m_MoveSpeedSlider.value = Mathf.InverseLerp(k_MinMoveSpeed, k_MaxMoveSpeed, m_Manager.dynamicMoveProvider.moveSpeed);
             m_StrafeToggle.toggleValue = m_Manager.dynamicMoveProvider.enableStrafe;
             m_ComfortModeToggle.toggleValue = (m_Manager.enableComfortMode);
@@ -272,6 +274,7 @@ namespace UnityEngine.XR.Content.Interaction
             m_GrabMoveLabel.text = $"Grab Move\n{(m_Manager.enableGrabMovement ? "Enabled" : "Disabled")}";
             m_MoveRatioLabel.text = $"{m_Manager.twoHandedGrabMoveProvider.moveFactor.ToString(k_GrabMoveRatioFormat)}{k_GrabMoveRatioLabel}";
             m_ScalingLabel.text = $"Scaling\n{(m_Manager.enableGrabMovement && m_Manager.twoHandedGrabMoveProvider.enableScaling ? "Enabled" : "Disabled")}";
+            */
         }
 
         protected void OnEnable()
@@ -404,19 +407,19 @@ namespace UnityEngine.XR.Content.Interaction
         void SetMoveSpeed(float sliderValue)
         {
             m_Manager.dynamicMoveProvider.moveSpeed = Mathf.Lerp(k_MinMoveSpeed, k_MaxMoveSpeed, sliderValue);
-            m_MoveSpeedLabel.text = $"{m_Manager.dynamicMoveProvider.moveSpeed.ToString(k_SpeedFormat)}{k_MoveSpeedUnitLabel}";
+            //m_MoveSpeedLabel.text = $"{m_Manager.dynamicMoveProvider.moveSpeed.ToString(k_SpeedFormat)}{k_MoveSpeedUnitLabel}";
         }
 
         void EnableStrafe()
         {
             m_Manager.dynamicMoveProvider.enableStrafe = true;
-            m_StrafeLabel.text = $"Strafe\n{(m_Manager.dynamicMoveProvider.enableStrafe ? "Enabled" : "Disabled")}";
+            //m_StrafeLabel.text = $"Strafe\n{(m_Manager.dynamicMoveProvider.enableStrafe ? "Enabled" : "Disabled")}";
         }
 
         void DisableStrafe()
         {
             m_Manager.dynamicMoveProvider.enableStrafe = false;
-            m_StrafeLabel.text = $"Strafe\n{(m_Manager.dynamicMoveProvider.enableStrafe ? "Enabled" : "Disabled")}";
+            //m_StrafeLabel.text = $"Strafe\n{(m_Manager.dynamicMoveProvider.enableStrafe ? "Enabled" : "Disabled")}";
         }
 
         void EnableComfort()
@@ -432,63 +435,63 @@ namespace UnityEngine.XR.Content.Interaction
         void EnableGravity()
         {
             m_Manager.useGravity = true;
-            m_GravityLabel.text = $"{k_GravityLabel}\n{(m_Manager.useGravity ? "Enabled" : "Disabled")}";
+            //m_GravityLabel.text = $"{k_GravityLabel}\n{(m_Manager.useGravity ? "Enabled" : "Disabled")}";
         }
 
         void DisableGravity()
         {
             m_Manager.useGravity = false;
-            m_GravityLabel.text = $"{k_GravityLabel}\n{(m_Manager.useGravity ? "Enabled" : "Disabled")}";
+            //m_GravityLabel.text = $"{k_GravityLabel}\n{(m_Manager.useGravity ? "Enabled" : "Disabled")}";
         }
 
         void EnableFly()
         {
             m_Manager.enableFly = true;
-            m_FlyLabel.text = $"Fly\n{(m_Manager.enableFly ? "Enabled" : "Disabled")}";
+            //m_FlyLabel.text = $"Fly\n{(m_Manager.enableFly ? "Enabled" : "Disabled")}";
         }
 
         void DisableFly()
         {
             m_Manager.enableFly = false;
-            m_FlyLabel.text = $"Fly\n{(m_Manager.enableFly ? "Enabled" : "Disabled")}";
+            //m_FlyLabel.text = $"Fly\n{(m_Manager.enableFly ? "Enabled" : "Disabled")}";
         }
 
         void SetTurnSpeed(float knobValue)
         {
-            m_Manager.smoothTurnProvider.turnSpeed = Mathf.Lerp(m_TurnSpeedKnob.minAngle, m_TurnSpeedKnob.maxAngle, knobValue);
-            m_TurnSpeedLabel.text = $"{m_Manager.smoothTurnProvider.turnSpeed.ToString(k_DegreeFormat)}{k_TurnSpeedUnitLabel}";
+            //m_Manager.smoothTurnProvider.turnSpeed = Mathf.Lerp(m_TurnSpeedKnob.minAngle, m_TurnSpeedKnob.maxAngle, knobValue);
+            //m_TurnSpeedLabel.text = $"{m_Manager.smoothTurnProvider.turnSpeed.ToString(k_DegreeFormat)}{k_TurnSpeedUnitLabel}";
         }
 
         void EnableTurnAround()
         {
             m_Manager.snapTurnProvider.enableTurnAround = true;
-            m_TurnAroundLabel.text = $"Turn Around \n{(m_Manager.snapTurnProvider.enableTurnAround ? "Enabled" : "Disabled")}";
+            //m_TurnAroundLabel.text = $"Turn Around \n{(m_Manager.snapTurnProvider.enableTurnAround ? "Enabled" : "Disabled")}";
         }
 
         void DisableTurnAround()
         {
             m_Manager.snapTurnProvider.enableTurnAround = false;
-            m_TurnAroundLabel.text = $"Turn Around \n{(m_Manager.snapTurnProvider.enableTurnAround ? "Enabled" : "Disabled")}";
+            //m_TurnAroundLabel.text = $"Turn Around \n{(m_Manager.snapTurnProvider.enableTurnAround ? "Enabled" : "Disabled")}";
         }
 
         void SetSnapTurnAmount(float newAmount)
         {
-            m_Manager.snapTurnProvider.turnAmount = Mathf.Lerp(m_SnapTurnKnob.minAngle, m_SnapTurnKnob.maxAngle, newAmount);
-            m_SnapTurnLabel.text = $"{m_Manager.snapTurnProvider.turnAmount.ToString(k_DegreeFormat)}{k_SnapTurnAmountLabel}";
+            //m_Manager.snapTurnProvider.turnAmount = Mathf.Lerp(m_SnapTurnKnob.minAngle, m_SnapTurnKnob.maxAngle, newAmount);
+            //m_SnapTurnLabel.text = $"{m_Manager.snapTurnProvider.turnAmount.ToString(k_DegreeFormat)}{k_SnapTurnAmountLabel}";
         }
 
         void EnableGrabMove()
         {
             m_Manager.enableGrabMovement = true;
-            m_GrabMoveLabel.text = $"Grab Move\n{(m_Manager.enableGrabMovement ? "Enabled" : "Disabled")}";
+            //m_GrabMoveLabel.text = $"Grab Move\n{(m_Manager.enableGrabMovement ? "Enabled" : "Disabled")}";
         }
 
         void DisableGrabMove()
         {
-            m_ScalingToggle.toggleValue = false;
+            //m_ScalingToggle.toggleValue = false;
             DisableScaling();
             m_Manager.enableGrabMovement = false;
-            m_GrabMoveLabel.text = $"Grab Move\n{(m_Manager.enableGrabMovement ? "Enabled" : "Disabled")}";
+            //m_GrabMoveLabel.text = $"Grab Move\n{(m_Manager.enableGrabMovement ? "Enabled" : "Disabled")}";
         }
 
         void SetGrabMoveRatio(float sliderValue)
@@ -498,21 +501,21 @@ namespace UnityEngine.XR.Content.Interaction
             twoHandedGrabMoveProvider.moveFactor = moveRatio;
             twoHandedGrabMoveProvider.leftGrabMoveProvider.moveFactor = moveRatio;
             twoHandedGrabMoveProvider.rightGrabMoveProvider.moveFactor = moveRatio;
-            m_MoveRatioLabel.text = $"{twoHandedGrabMoveProvider.moveFactor.ToString(k_GrabMoveRatioFormat)}{k_GrabMoveRatioLabel}";
+            //m_MoveRatioLabel.text = $"{twoHandedGrabMoveProvider.moveFactor.ToString(k_GrabMoveRatioFormat)}{k_GrabMoveRatioLabel}";
         }
 
         void EnableScaling()
         {
-            m_GrabMoveToggle.toggleValue = true;
+            //m_GrabMoveToggle.toggleValue = true;
             EnableGrabMove();
             m_Manager.twoHandedGrabMoveProvider.enableScaling = true;
-            m_ScalingLabel.text = $"Scaling\n{(m_Manager.enableGrabMovement && m_Manager.twoHandedGrabMoveProvider.enableScaling ? "Enabled" : "Disabled")}";
+            //m_ScalingLabel.text = $"Scaling\n{(m_Manager.enableGrabMovement && m_Manager.twoHandedGrabMoveProvider.enableScaling ? "Enabled" : "Disabled")}";
         }
 
         void DisableScaling()
         {
             m_Manager.twoHandedGrabMoveProvider.enableScaling = false;
-            m_ScalingLabel.text = $"Scaling\n{(m_Manager.enableGrabMovement && m_Manager.twoHandedGrabMoveProvider.enableScaling ? "Enabled" : "Disabled")}";
+            //m_ScalingLabel.text = $"Scaling\n{(m_Manager.enableGrabMovement && m_Manager.twoHandedGrabMoveProvider.enableScaling ? "Enabled" : "Disabled")}";
         }
     }
 }
