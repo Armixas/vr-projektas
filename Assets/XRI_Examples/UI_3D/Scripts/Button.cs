@@ -6,7 +6,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 namespace UnityEngine.XR.Content.Interaction
 {
-    public class Button : XRBaseInteractable
+    public class Button : XRSimpleInteractable
     {
         class PressInfo
         {
@@ -16,10 +16,6 @@ namespace UnityEngine.XR.Content.Interaction
 
         [SerializeField]
         GameObject m_Button;
-
-        [SerializeField]
-        [Tooltip("How big of a surface area is available for pressing the button")]
-        float m_ButtonSize = 0.1f;
 
         [SerializeField]
         [Tooltip("Events to trigger when the button is pressed")]
@@ -52,6 +48,19 @@ namespace UnityEngine.XR.Content.Interaction
         public UnityEvent onPress => m_OnPress;
         public UnityEvent onRelease => m_OnRelease;
 
+        public bool toggleValue
+        {
+            get => m_Toggled;
+            set
+            {
+                m_Toggled = value;
+                if (m_Toggled)
+                    SetButtonColor(m_PressedColor);
+                else
+                    SetButtonColor(m_UnpressedColor);
+            }
+        }
+
         void SetButtonColor(Color color)
         {
             var renderer = button.GetComponent<Renderer>();
@@ -73,9 +82,15 @@ namespace UnityEngine.XR.Content.Interaction
             m_Toggled = !m_Toggled;
 
             if (m_Toggled)
+            {
                 SetButtonColor(m_PressedColor);
+                m_OnPress.Invoke();
+            }
             else
+            {
                 SetButtonColor(m_UnpressedColor);
+                m_OnRelease.Invoke();
+            }
         }
     }
 }
