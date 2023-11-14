@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028346, g: 0.22571373, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4199,7 +4199,7 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
-  m_Handle: {fileID: 981079998}
+  m_Handle: {fileID: 1866616558}
   m_Value: 0
   m_LockToValue: 1
   m_MaxAngle: 50
@@ -8922,9 +8922,9 @@ MonoBehaviour:
   m_LeftHandLocomotionTypeToggle: {fileID: 899297651}
   m_RightHandLocomotionTypeToggle: {fileID: 1603084900}
   m_LeftHandMovementDirectionToggle: {fileID: 28220496}
-  m_RightHandMovementDirectionToggle: {fileID: 981080000}
+  m_RightHandMovementDirectionToggle: {fileID: 864321398}
   m_LeftHandTurnStyleToggle: {fileID: 769823409}
-  m_RightHandTurnStyleToggle: {fileID: 864321398}
+  m_RightHandTurnStyleToggle: {fileID: 981080000}
   m_StrafeToggle: {fileID: 373909263}
   m_ComfortModeToggle: {fileID: 247318390}
   m_TurnAroundToggle: {fileID: 827894336}
@@ -9107,7 +9107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AffordanceStateProvider: {fileID: 1184402926}
-  m_ReplaceIdleStateValueWithInitialValue: 1
+  m_ReplaceIdleStateValueWithInitialValue: 0
   m_AffordanceThemeDatum:
     m_UseConstant: 0
     m_ConstantValue:
@@ -11872,6 +11872,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4329429806517894, guid: 08e2e8c1162b95d4e8cefd165a619eb0, type: 3}
   m_PrefabInstance: {fileID: 1849544643}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1866616558 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4467717253858090, guid: 05a83fa777e16c34ca675fabeca72176, type: 3}
+  m_PrefabInstance: {fileID: 769823405}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1876064415 stripped
 MonoBehaviour:
