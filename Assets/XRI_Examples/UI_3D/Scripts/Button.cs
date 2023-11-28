@@ -39,6 +39,10 @@ namespace UnityEngine.XR.Content.Interaction
         [Tooltip("Whether the button is pressed currently")]
         bool m_Toggled = false;
 
+        [SerializeField]
+        [Tooltip("Sounds to play when the button is activated or deactivated")]
+        List<AudioClip> m_Sounds;
+
         public GameObject button
         {
             get => m_Button;
@@ -70,7 +74,6 @@ namespace UnityEngine.XR.Content.Interaction
         protected override void OnEnable()
         {
             base.OnEnable();
-
             if (m_Toggled)
                 SetButtonColor(m_PressedColor);
             else
@@ -80,6 +83,8 @@ namespace UnityEngine.XR.Content.Interaction
         public void Press()
         {
             m_Toggled = !m_Toggled;
+
+            GetComponent<AudioSource>().PlayOneShot(m_Sounds[Random.Range(0, m_Sounds.Count - 1)], 0.4F);
 
             if (m_Toggled)
             {

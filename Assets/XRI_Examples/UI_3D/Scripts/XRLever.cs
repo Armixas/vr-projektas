@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -31,6 +32,10 @@ namespace UnityEngine.XR.Content.Interaction
         [Tooltip("Angle of the lever in the 'off' position")]
         [Range(-90.0f, 90.0f)]
         float m_MinAngle = -90.0f;
+
+        [SerializeField]
+        [Tooltip("Sounds to play when the lever is activated or deactivated")]
+        List<AudioClip> m_Sounds;
 
         [SerializeField]
         [Tooltip("Events to trigger when the lever activates")]
@@ -93,9 +98,12 @@ namespace UnityEngine.XR.Content.Interaction
         /// </summary>
         public UnityEvent onLeverDeactivate => m_OnLeverDeactivate;
 
+        private bool soundDisabled = true;
+
         void Start()
         {
             SetValue(m_Value, true);
+            soundDisabled = false;
         }
 
         protected override void OnEnable()
@@ -184,10 +192,18 @@ namespace UnityEngine.XR.Content.Interaction
 
             if (m_Value)
             {
+                if (soundDisabled == false)
+                {
+                    GetComponent<AudioSource>().PlayOneShot(m_Sounds[Random.Range(0,m_Sounds.Count-1)], 0.4F);
+                }
                 m_OnLeverActivate.Invoke();
             }
             else
             {
+                if (soundDisabled == false)
+                {
+                    GetComponent<AudioSource>().PlayOneShot(m_Sounds[Random.Range(0, m_Sounds.Count - 1)], 0.4F);
+                }
                 m_OnLeverDeactivate.Invoke();
             }
 
