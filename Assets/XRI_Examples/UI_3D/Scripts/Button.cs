@@ -84,7 +84,7 @@ namespace UnityEngine.XR.Content.Interaction
         {
             m_Toggled = !m_Toggled;
 
-            GetComponent<AudioSource>().PlayOneShot(m_Sounds[Random.Range(0, m_Sounds.Count - 1)], 0.4F);
+            GetComponent<AudioSource>().PlayOneShot(m_Sounds[Random.Range(0, m_Sounds.Count - 1)], 0.25F);
 
             if (m_Toggled)
             {
