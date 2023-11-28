@@ -95,6 +95,12 @@ namespace UnityEngine.XR.Content.Interaction
         [Tooltip("The label that shows the current turn around toggle value.")]
         TextMeshPro m_TurnAroundLabel;
 
+
+        [SerializeField] [Tooltip("The label that shows the current turn around toggle value.")]
+        private GameObject _locomotionPreferencesManager;
+
+        /*void Awake() => _locomotionPreferencesManager.GetComponent<UserPreferencesLoader>();*/
+
         void ConnectControlEvents()
         {
             m_LeftHandLocomotionTypeToggle.onLeverActivate.AddListener(EnableLeftHandMoveAndStrafe);

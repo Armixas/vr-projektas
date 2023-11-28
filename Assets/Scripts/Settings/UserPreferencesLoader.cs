@@ -1,11 +1,71 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.XR.Content.Interaction;
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
 namespace Settings
 {
-    public class LocomotionPreferencesManager
+    public class LocomotionPreferencesManager : MonoBehaviour
     {
+        public float MaxMoveSpeed = 5.0f;
+
+        private ActionBasedSnapTurnProvider _snapTurnProvider;
+        private ActionBasedContinuousTurnProvider _continuousTurnProvider;
+        private DynamicMoveProvider _moveProvider;
+        // Start is called before the first frame update
         
+        [SerializeField]
+        private float MoveSpeed = 5.0f;
+        [SerializeField]
+        private float TurnSpeed = 180f;
+        [SerializeField]
+        private float SnapTurnAmount = 90f;
+        [SerializeField]
+        private GameObject _XROrigin;
+
+
+        void Awake() => InitializeComponents();
+        void Start()
+        {
+            LoadDefaultSettings();
+            if (!HasAllPrefs()) return;
+        }
+
+        void InitializeComponents()
+        {
+            if (_XROrigin != null)
+            {
+                _snapTurnProvider = _XROrigin.GetComponent<ActionBasedSnapTurnProvider>();
+                _moveProvider = _XROrigin.GetComponent<DynamicMoveProvider>();
+                _continuousTurnProvider = _XROrigin.GetComponent<ActionBasedContinuousTurnProvider>();
+            }
+            else
+            {
+                Debug.LogError("XROrigin is null. Assign the GameObject to script.");
+            }
+        }
+
+        void LoadDefaultSettings()
+        {
+            _continuousTurnProvider.turnSpeed = TurnSpeed;
+            _moveProvider.moveSpeed = MoveSpeed;
+            _snapTurnProvider.turnAmount = SnapTurnAmount;
+        }
+
+        bool HasAllPrefs()
+        {
+            string[] enumNames = Enum.GetNames(typeof(LocomotionSettingsKey));
+            int count = 0;
+            foreach (string key in enumNames)
+            {
+                if (PlayerPrefs.HasKey(key))
+                    count++;
+            }
+
+            return count == enumNames.Length;
+        }
+
         public void SavePreferences(LocomotionManager manager)
         {
             // Locomotion type
@@ -37,16 +97,6 @@ namespace Settings
             manager.dynamicMoveProvider.enableStrafe = PlayerPrefs.GetInt(LocomotionSettingsKey.EnableStrafe.ToString(), manager.dynamicMoveProvider.enableStrafe ? 1 : 0) == 1;
             manager.enableComfortMode = PlayerPrefs.GetInt(LocomotionSettingsKey.EnableComfortMode.ToString(), manager.enableComfortMode ? 1 : 0) == 1;
             manager.snapTurnProvider.enableTurnAround = PlayerPrefs.GetInt(LocomotionSettingsKey.EnableTurnAround.ToString(), manager.snapTurnProvider.enableTurnAround ? 1 : 0) == 1;
-        }
-
-        public class LocomotionDefaults
-        {
-            public float MaxMoveSpeed = 5.0f;
-            private const float MinMoveSpeed = 0.5f;
-            private const float MaxTurnSpeed = 180f;
-            private const float MaxSnapTurnAmount = 90f;
-            private const float MaxGrabMoveRatio = 4f;
-            private const float MinGrabMoveRatio = 0.5f;
         }
 
         public enum LocomotionSettingsKey

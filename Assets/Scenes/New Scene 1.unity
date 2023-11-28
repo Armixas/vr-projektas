@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028346, g: 0.22571373, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -776,10 +776,10 @@ MonoBehaviour:
   m_MaxAngle: 50
   m_MinAngle: -50
   m_Sounds:
-  - {fileID: 8300000, guid: d48e19b63edbdb54d83dc401492043a5, type: 3}
+  - {fileID: 8300000, guid: 5d92b97d9bb6b0a459cbbb192fbe910f, type: 3}
   - {fileID: 8300000, guid: e215c71679563494381bb69e63ce057e, type: 3}
   - {fileID: 8300000, guid: 4d4c3a48a365cd54abbd640f5ec95565, type: 3}
-  - {fileID: 8300000, guid: 41567e4512b5afb498933c7690b4ea10, type: 3}
+  - {fileID: 8300000, guid: de18a8693ab48ce49a17142a25a876aa, type: 3}
   m_OnLeverActivate:
     m_PersistentCalls:
       m_Calls: []
@@ -8262,10 +8262,10 @@ MonoBehaviour:
   m_MaxAngle: 50
   m_MinAngle: -50
   m_Sounds:
-  - {fileID: 8300000, guid: d48e19b63edbdb54d83dc401492043a5, type: 3}
+  - {fileID: 8300000, guid: 5d92b97d9bb6b0a459cbbb192fbe910f, type: 3}
   - {fileID: 8300000, guid: e215c71679563494381bb69e63ce057e, type: 3}
   - {fileID: 8300000, guid: 4d4c3a48a365cd54abbd640f5ec95565, type: 3}
-  - {fileID: 8300000, guid: 41567e4512b5afb498933c7690b4ea10, type: 3}
+  - {fileID: 8300000, guid: de18a8693ab48ce49a17142a25a876aa, type: 3}
   m_OnLeverActivate:
     m_PersistentCalls:
       m_Calls: []
@@ -8789,10 +8789,10 @@ MonoBehaviour:
   m_MaxAngle: 50
   m_MinAngle: -50
   m_Sounds:
-  - {fileID: 8300000, guid: d48e19b63edbdb54d83dc401492043a5, type: 3}
+  - {fileID: 8300000, guid: de18a8693ab48ce49a17142a25a876aa, type: 3}
   - {fileID: 8300000, guid: e215c71679563494381bb69e63ce057e, type: 3}
   - {fileID: 8300000, guid: 4d4c3a48a365cd54abbd640f5ec95565, type: 3}
-  - {fileID: 8300000, guid: 41567e4512b5afb498933c7690b4ea10, type: 3}
+  - {fileID: 8300000, guid: 5d92b97d9bb6b0a459cbbb192fbe910f, type: 3}
   m_OnLeverActivate:
     m_PersistentCalls:
       m_Calls: []
@@ -14815,10 +14815,10 @@ MonoBehaviour:
   m_MaxAngle: 50
   m_MinAngle: -50
   m_Sounds:
-  - {fileID: 8300000, guid: d48e19b63edbdb54d83dc401492043a5, type: 3}
+  - {fileID: 8300000, guid: de18a8693ab48ce49a17142a25a876aa, type: 3}
   - {fileID: 8300000, guid: e215c71679563494381bb69e63ce057e, type: 3}
   - {fileID: 8300000, guid: 4d4c3a48a365cd54abbd640f5ec95565, type: 3}
-  - {fileID: 8300000, guid: 41567e4512b5afb498933c7690b4ea10, type: 3}
+  - {fileID: 8300000, guid: de18a8693ab48ce49a17142a25a876aa, type: 3}
   m_OnLeverActivate:
     m_PersistentCalls:
       m_Calls: []
