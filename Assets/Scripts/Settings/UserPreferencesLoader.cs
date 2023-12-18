@@ -18,9 +18,9 @@ namespace Settings
         [SerializeField]
         private float MoveSpeed = 5.0f;
         [SerializeField]
-        private float TurnSpeed = 180f;
+        private float TurnSpeed = 90f;
         [SerializeField]
-        private float SnapTurnAmount = 90f;
+        private float SnapTurnAmount = 45f;
         [SerializeField]
         private GameObject _XROrigin;
 
