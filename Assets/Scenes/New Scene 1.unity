@@ -18258,9 +18258,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4161618464635402874, guid: 85bd0126eb97d0740a5440aa297e6f79, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1945089064}
+    - targetCorrespondingSourceObject: {fileID: 4161618464635402874, guid: 85bd0126eb97d0740a5440aa297e6f79, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1945089069}
     - targetCorrespondingSourceObject: {fileID: 6122724932329866696, guid: 85bd0126eb97d0740a5440aa297e6f79, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1945089065}
+    - targetCorrespondingSourceObject: {fileID: 6122724932329866696, guid: 85bd0126eb97d0740a5440aa297e6f79, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1945089073}
   m_SourcePrefab: {fileID: 100100000, guid: 85bd0126eb97d0740a5440aa297e6f79, type: 3}
 --- !u!1 &1945089062 stripped
 GameObject:
@@ -18322,7 +18328,19 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1945089069}
+        m_TargetAssemblyTypeName: DoorScript, Assembly-CSharp
+        m_MethodName: SwitchLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls: []
@@ -18424,7 +18442,19 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1945089073}
+        m_TargetAssemblyTypeName: DoorScript, Assembly-CSharp
+        m_MethodName: SwitchLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls: []
@@ -18481,11 +18511,35 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 7616618541293454970, guid: 85bd0126eb97d0740a5440aa297e6f79, type: 3}
   m_PrefabInstance: {fileID: 1945089061}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1945089069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1945089062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4b9985258f8c314ca3f8d0eabd15b28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &1945089072 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 1776749608564704458, guid: 85bd0126eb97d0740a5440aa297e6f79, type: 3}
   m_PrefabInstance: {fileID: 1945089061}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1945089073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1945089063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4b9985258f8c314ca3f8d0eabd15b28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1969344351
 GameObject:
   m_ObjectHideFlags: 0

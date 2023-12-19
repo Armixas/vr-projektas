@@ -22,6 +22,17 @@ public class CheckSolution : MonoBehaviour
         Check();
     }
 
+    public void Remove(SelectExitEventArgs args)
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            if (Tables[i].GetComponentInChildren<XRSocketInteractor>() == args.interactorObject)
+            {
+                TableItems[i] = null;
+            }
+        }
+    }
+
     public void Check()
     {
         bool solved = true;
