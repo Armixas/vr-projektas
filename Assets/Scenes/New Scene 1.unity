@@ -5088,7 +5088,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 64869407941001872, guid: 6260e5ed6d3edfc469f216ef9a00f03b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4651678477994308, guid: 6260e5ed6d3edfc469f216ef9a00f03b, type: 3}
@@ -5107,6 +5108,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1412398919580178, guid: 6260e5ed6d3edfc469f216ef9a00f03b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2127912028}
+    - targetCorrespondingSourceObject: {fileID: 1412398919580178, guid: 6260e5ed6d3edfc469f216ef9a00f03b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2127912032}
   m_SourcePrefab: {fileID: 100100000, guid: 6260e5ed6d3edfc469f216ef9a00f03b, type: 3}
 --- !u!224 &685401667
 RectTransform:
@@ -20746,6 +20750,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &2127912032
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2127912022}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.3752498, y: 0.3009174, z: 0.2947278}
+  m_Center: {x: -0.053457826, y: 0.1504587, z: 0.000000014901159}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

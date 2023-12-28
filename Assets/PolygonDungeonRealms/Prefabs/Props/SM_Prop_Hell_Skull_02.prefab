@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4316936116710804}
   - component: {fileID: 33417372257580900}
   - component: {fileID: 23602339006119554}
-  - component: {fileID: 64336249463243670}
+  - component: {fileID: 2662094612567311173}
   m_Layer: 0
   m_Name: SM_Prop_Hell_Skull_02
   m_TagString: Untagged
@@ -85,8 +85,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &64336249463243670
-MeshCollider:
+--- !u!65 &2662094612567311173
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -103,10 +103,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 43728520382987432, guid: cbeda238fea285243b59efde90c79acc, type: 2}
+  serializedVersion: 3
+  m_Size: {x: 0.45857954, y: 0.56999767, z: 0.55814}
+  m_Center: {x: -0.00001759727, y: -0.016369864, z: 0.033374637}
 --- !u!1 &3165803844790574452
 GameObject:
   m_ObjectHideFlags: 0
