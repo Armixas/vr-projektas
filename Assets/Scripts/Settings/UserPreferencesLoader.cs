@@ -28,8 +28,14 @@ namespace Settings
         void Awake() => InitializeComponents();
         void Start()
         {
+            var locomanager = _XROrigin.GetComponent<LocomotionManager>();
+            
+            
             LoadDefaultSettings();
+                
             if (!HasAllPrefs()) return;
+            
+            LoadPreferences(locomanager);
         }
 
         void InitializeComponents()
