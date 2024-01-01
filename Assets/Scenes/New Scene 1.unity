@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028346, g: 0.22571373, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -586,14 +586,17 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8963832399341986758, guid: 518a44d069e71374b9df5b88884135ce, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1699417580}
   m_SourcePrefab: {fileID: 100100000, guid: 518a44d069e71374b9df5b88884135ce, type: 3}
 --- !u!114 &19342501 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2886845555523575708, guid: 518a44d069e71374b9df5b88884135ce, type: 3}
   m_PrefabInstance: {fileID: 19342500}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1919567979}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa74d384629b02340bc59709603b0771, type: 3}
@@ -15945,6 +15948,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49e0a5b5ff5540f5b14dd29d46faec22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1699417578 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8963832399341986758, guid: 518a44d069e71374b9df5b88884135ce, type: 3}
+  m_PrefabInstance: {fileID: 19342500}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1699417580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699417578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d94f064936c444eb8d8dfbb23d39206, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxMoveSpeed: 5
+  MoveSpeed: 5
+  TurnSpeed: 90
+  SnapTurnAmount: 45
+  _XROrigin: {fileID: 1919567979}
 --- !u!1001 &1720490251
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17986,6 +18011,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4329429806517894, guid: 08e2e8c1162b95d4e8cefd165a619eb0, type: 3}
   m_PrefabInstance: {fileID: 1906545530}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1919567979 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5619982570972667971, guid: 518a44d069e71374b9df5b88884135ce, type: 3}
+  m_PrefabInstance: {fileID: 19342500}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1945089061
 PrefabInstance:
