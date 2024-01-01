@@ -8,8 +8,27 @@ public class ObjectCollisionSound : MonoBehaviour
     [Tooltip("Sounds to play when the object collides")]
     List<AudioClip> Sounds;
 
+    private float startTime;
+    private bool Enabled = false;
+
+    private void Start()
+    {
+        startTime = Time.time;
+    }
+
+    void Update()
+    {
+        if(Time.time - startTime >= 2)
+        {
+            Enabled = true;
+        }
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
-        GetComponent<AudioSource>().PlayOneShot(Sounds[Random.Range(0, Sounds.Count - 1)], 0.75F);
+        if (Enabled)
+        {
+            GetComponent<AudioSource>().PlayOneShot(Sounds[Random.Range(0, Sounds.Count - 1)], 0.75F);
+        }
     }
 }
