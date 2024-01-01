@@ -507,10 +507,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2605918003550134899, guid: 518a44d069e71374b9df5b88884135ce, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 13fea913cc0bb08458bb75c2ea4b5fe8, type: 2}
     - target: {fileID: 2886845555523575708, guid: 518a44d069e71374b9df5b88884135ce, type: 3}
       propertyPath: m_RightHandTurnStyle
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6490028913077362998, guid: 518a44d069e71374b9df5b88884135ce, type: 3}
+      propertyPath: fadeOnStart
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6490028913077362998, guid: 518a44d069e71374b9df5b88884135ce, type: 3}
+      propertyPath: fadeDuration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6630153759098319958, guid: 518a44d069e71374b9df5b88884135ce, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2f1724210e847914d8ebf13897e7ac1f, type: 2}
     - target: {fileID: 7215145081652826834, guid: 518a44d069e71374b9df5b88884135ce, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.133678
@@ -551,6 +567,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7276864475857402074, guid: 518a44d069e71374b9df5b88884135ce, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 13fea913cc0bb08458bb75c2ea4b5fe8, type: 2}
+    - target: {fileID: 8655536229008916207, guid: 518a44d069e71374b9df5b88884135ce, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2f1724210e847914d8ebf13897e7ac1f, type: 2}
     - target: {fileID: 8963832399341986758, guid: 518a44d069e71374b9df5b88884135ce, type: 3}
       propertyPath: m_Name
       value: VR Controlleris
@@ -18527,6 +18551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4b9985258f8c314ca3f8d0eabd15b28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeScript: {fileID: 1956683739}
 --- !u!23 &1945089072 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 1776749608564704458, guid: 85bd0126eb97d0740a5440aa297e6f79, type: 3}
@@ -18542,6 +18567,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b4b9985258f8c314ca3f8d0eabd15b28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeScript: {fileID: 1956683739}
+--- !u!114 &1956683739 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6490028913077362998, guid: 518a44d069e71374b9df5b88884135ce, type: 3}
+  m_PrefabInstance: {fileID: 19342500}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac7c626f13e3e304b921a0b4c81b84ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1969344351
