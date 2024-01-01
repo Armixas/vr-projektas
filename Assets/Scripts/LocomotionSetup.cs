@@ -1,4 +1,5 @@
 using TMPro;
+using Settings;
 using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
 namespace UnityEngine.XR.Content.Interaction
@@ -26,6 +27,7 @@ namespace UnityEngine.XR.Content.Interaction
         const string k_GrabMoveRatioLabel = " : 1.0";
 
         const string k_GravityLabel = "Rig Gravity";
+
 
         [SerializeField]
         [Tooltip("Stores the behavior that will be used to configure locomotion control schemes and configuration preferences.")]
@@ -95,11 +97,8 @@ namespace UnityEngine.XR.Content.Interaction
         [Tooltip("The label that shows the current turn around toggle value.")]
         TextMeshPro m_TurnAroundLabel;
 
-
-        [SerializeField] [Tooltip("The label that shows the current turn around toggle value.")]
-        private GameObject _locomotionPreferencesManager;
-
-        /*void Awake() => _locomotionPreferencesManager.GetComponent<UserPreferencesLoader>();*/
+        [SerializeField]
+        LocomotionPreferencesManager m_LocomotionPreferencesManager;
 
         void ConnectControlEvents()
         {
@@ -235,6 +234,7 @@ namespace UnityEngine.XR.Content.Interaction
             m_Manager.leftHandLocomotionType = LocomotionManager.LocomotionType.MoveAndStrafe;
             m_LeftHandMovementDirectionSelection.SetActive(true);
             m_LeftHandTurnStyleSelection.SetActive(false);
+            m_LocomotionPreferencesManager.SavePreferences(m_Manager);
         }
 
         void EnableRightHandMoveAndStrafe()
@@ -242,6 +242,7 @@ namespace UnityEngine.XR.Content.Interaction
             m_Manager.rightHandLocomotionType = LocomotionManager.LocomotionType.MoveAndStrafe;
             m_RightHandMovementDirectionSelection.SetActive(true);
             m_RightHandTurnStyleSelection.SetActive(false);
+            m_LocomotionPreferencesManager.SavePreferences(m_Manager);
         }
 
         void EnableLeftHandTeleportAndTurn()
@@ -249,6 +250,7 @@ namespace UnityEngine.XR.Content.Interaction
             m_Manager.leftHandLocomotionType = LocomotionManager.LocomotionType.TeleportAndTurn;
             m_LeftHandMovementDirectionSelection.SetActive(false);
             m_LeftHandTurnStyleSelection.SetActive(true);
+            m_LocomotionPreferencesManager.SavePreferences(m_Manager);
         }
 
         void EnableRightHandTeleportAndTurn()
@@ -256,82 +258,97 @@ namespace UnityEngine.XR.Content.Interaction
             m_Manager.rightHandLocomotionType = LocomotionManager.LocomotionType.TeleportAndTurn;
             m_RightHandMovementDirectionSelection.SetActive(false);
             m_RightHandTurnStyleSelection.SetActive(true);
+            m_LocomotionPreferencesManager.SavePreferences(m_Manager);
         }
 
         void EnableLeftHandContinuousTurn()
         {
             m_Manager.leftHandTurnStyle = LocomotionManager.TurnStyle.Smooth;
+            m_LocomotionPreferencesManager.SavePreferences(m_Manager);
         }
 
         void EnableRightHandContinuousTurn()
         {
             m_Manager.rightHandTurnStyle = LocomotionManager.TurnStyle.Smooth;
+            m_LocomotionPreferencesManager.SavePreferences(m_Manager);
         }
 
         void EnableLeftHandSnapTurn()
         {
             m_Manager.leftHandTurnStyle = LocomotionManager.TurnStyle.Snap;
+            m_LocomotionPreferencesManager.SavePreferences(m_Manager);
         }
 
         void EnableRightHandSnapTurn()
         {
             m_Manager.rightHandTurnStyle = LocomotionManager.TurnStyle.Snap;
+            m_LocomotionPreferencesManager.SavePreferences(m_Manager);
         }
 
         void SetLeftMovementDirectionHeadRelative()
         {
             m_Manager.dynamicMoveProvider.leftHandMovementDirection = DynamicMoveProvider.MovementDirection.HeadRelative;
+            m_LocomotionPreferencesManager.SavePreferences(m_Manager);
         }
 
         void SetLeftMovementDirectionHandRelative()
         {
             m_Manager.dynamicMoveProvider.leftHandMovementDirection = DynamicMoveProvider.MovementDirection.HandRelative;
+            m_LocomotionPreferencesManager.SavePreferences(m_Manager);
         }
 
         void SetRightMovementDirectionHeadRelative()
         {
             m_Manager.dynamicMoveProvider.rightHandMovementDirection = DynamicMoveProvider.MovementDirection.HeadRelative;
+            m_LocomotionPreferencesManager.SavePreferences(m_Manager);
         }
 
         void SetRightMovementDirectionHandRelative()
         {
             m_Manager.dynamicMoveProvider.rightHandMovementDirection = DynamicMoveProvider.MovementDirection.HandRelative;
+            m_LocomotionPreferencesManager.SavePreferences(m_Manager);
         }
 
         void EnableStrafe()
         {
             m_Manager.dynamicMoveProvider.enableStrafe = true;
             m_StrafeLabel.text = $"Strafe\n{(m_Manager.dynamicMoveProvider.enableStrafe ? "Enabled" : "Disabled")}";
+            m_LocomotionPreferencesManager.SavePreferences(m_Manager);
         }
 
         void DisableStrafe()
         {
             m_Manager.dynamicMoveProvider.enableStrafe = false;
             m_StrafeLabel.text = $"Strafe\n{(m_Manager.dynamicMoveProvider.enableStrafe ? "Enabled" : "Disabled")}";
+            m_LocomotionPreferencesManager.SavePreferences(m_Manager);
         }
 
         void EnableComfort()
         {
             m_Manager.enableComfortMode = true;
             m_ComfortModeLabel.text = $"Comfort Mode\n{(m_Manager.enableComfortMode ? "Enabled" : "Disabled")}";
+            m_LocomotionPreferencesManager.SavePreferences(m_Manager);
         }
 
         void DisableComfort()
         {
             m_Manager.enableComfortMode = false;
             m_ComfortModeLabel.text = $"Comfort Mode\n{(m_Manager.enableComfortMode ? "Enabled" : "Disabled")}";
+            m_LocomotionPreferencesManager.SavePreferences(m_Manager);
         }
 
         void EnableTurnAround()
         {
             m_Manager.snapTurnProvider.enableTurnAround = true;
             m_TurnAroundLabel.text = $"Turn Around \n{(m_Manager.snapTurnProvider.enableTurnAround ? "Enabled" : "Disabled")}";
+            m_LocomotionPreferencesManager.SavePreferences(m_Manager);
         }
 
         void DisableTurnAround()
         {
             m_Manager.snapTurnProvider.enableTurnAround = false;
             m_TurnAroundLabel.text = $"Turn Around \n{(m_Manager.snapTurnProvider.enableTurnAround ? "Enabled" : "Disabled")}";
+            m_LocomotionPreferencesManager.SavePreferences(m_Manager);
         }        
     }
 }
