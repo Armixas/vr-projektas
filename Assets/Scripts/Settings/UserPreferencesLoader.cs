@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.XR.Content.Interaction;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -14,19 +16,22 @@ namespace Settings
         private ActionBasedContinuousTurnProvider _continuousTurnProvider;
         private DynamicMoveProvider _moveProvider;
         // Start is called before the first frame update
-        
-        [SerializeField]
-        private float MoveSpeed = 5.0f;
-        [SerializeField]
-        private float TurnSpeed = 90f;
-        [SerializeField]
-        private float SnapTurnAmount = 45f;
-        [SerializeField]
-        private GameObject _XROrigin;
+
+        [SerializeField] private float MoveSpeed = 5.0f;
+        [SerializeField] private float TurnSpeed = 90f;
+        [SerializeField] private float SnapTurnAmount = 45f;
+        [SerializeField] private GameObject _XROrigin;
+
+        private string filePath;
 
 
-        void Awake() => InitializeComponents();
-        void Start()
+        void Awake()
+        {
+            filePath = Application.persistentDataPath + "/locomotionSettings.dat";
+            InitializeComponents();
+        }
+
+    void Start()
         {
             var locomanager = _XROrigin.GetComponent<LocomotionManager>();
             
@@ -40,6 +45,7 @@ namespace Settings
 
         void InitializeComponents()
         {
+            
             if (_XROrigin != null)
             {
                 _snapTurnProvider = _XROrigin.GetComponent<ActionBasedSnapTurnProvider>();
@@ -88,21 +94,47 @@ namespace Settings
 
 
             PlayerPrefs.Save();
+            SaveSettingBinary(manager);
         }
-        
+
+        public void SaveSettingBinary(LocomotionManager manager)
+        {
+            // Alternative way to save data as PlayerPref didn't fully work
+            LocomotionSettingsData settingsData = new LocomotionSettingsData();
+            settingsData.leftHandLocomotionType = (int)manager.leftHandLocomotionType;
+            settingsData.rightHandLocomotionType = (int)manager.rightHandLocomotionType;
+            settingsData.leftHandTurnStyle = (int)manager.leftHandTurnStyle;
+            settingsData.rightHandTurnStyle = (int)manager.rightHandTurnStyle;
+            settingsData.enableStrafe = manager.dynamicMoveProvider.enableStrafe ? 1 : 0;
+            settingsData.enableComfortMode = manager.enableComfortMode ? 1 : 0;
+            settingsData.enableTurnAround = manager.snapTurnProvider.enableTurnAround ? 1 : 0;
+            
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream fileStream = new FileStream(filePath, FileMode.Create);
+            formatter.Serialize(fileStream, settingsData);
+            fileStream.Close();
+        }
         public void LoadPreferences(LocomotionManager manager)
         {
-            // Locomotion type
+        
+            if (!File.Exists(filePath)) return;
+            
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream fileStream = new FileStream(filePath, FileMode.Open);
+            LocomotionSettingsData settingsData = (LocomotionSettingsData)formatter.Deserialize(fileStream);
+            fileStream.Close();
+
             manager.leftHandLocomotionType = (LocomotionManager.LocomotionType)PlayerPrefs.GetInt(LocomotionSettingsKey.LeftHandLocomotionType.ToString(), (int)manager.leftHandLocomotionType);
             manager.rightHandLocomotionType = (LocomotionManager.LocomotionType)PlayerPrefs.GetInt(LocomotionSettingsKey.RightHandLocomotionType.ToString(), (int)manager.rightHandLocomotionType);
 
             // Turn style preferences
-            manager.leftHandTurnStyle = (LocomotionManager.TurnStyle)PlayerPrefs.GetInt(LocomotionSettingsKey.LeftHandTurnStyle.ToString(), (int)manager.leftHandTurnStyle);
-            manager.rightHandTurnStyle = (LocomotionManager.TurnStyle)PlayerPrefs.GetInt(LocomotionSettingsKey.RightHandTurnStyle.ToString(), (int)manager.rightHandTurnStyle);
-            
-            manager.dynamicMoveProvider.enableStrafe = PlayerPrefs.GetInt(LocomotionSettingsKey.EnableStrafe.ToString(), manager.dynamicMoveProvider.enableStrafe ? 1 : 0) == 1;
-            manager.enableComfortMode = PlayerPrefs.GetInt(LocomotionSettingsKey.EnableComfortMode.ToString(), manager.enableComfortMode ? 1 : 0) == 1;
-            manager.snapTurnProvider.enableTurnAround = PlayerPrefs.GetInt(LocomotionSettingsKey.EnableTurnAround.ToString(), manager.snapTurnProvider.enableTurnAround ? 1 : 0) == 1;
+            manager.leftHandTurnStyle = (LocomotionManager.TurnStyle) settingsData.leftHandTurnStyle;
+            manager.rightHandTurnStyle = (LocomotionManager.TurnStyle) settingsData.rightHandTurnStyle;
+
+            manager.dynamicMoveProvider.enableStrafe = settingsData.enableStrafe == 1;
+            manager.enableComfortMode = settingsData.enableComfortMode == 1;
+            manager.snapTurnProvider.enableTurnAround = settingsData.enableTurnAround == 1;
+
         }
 
         public enum LocomotionSettingsKey
@@ -114,6 +146,17 @@ namespace Settings
             EnableStrafe,
             EnableComfortMode,
             EnableTurnAround
+        }
+        [System.Serializable]
+        public class LocomotionSettingsData
+        {
+            public int leftHandLocomotionType;
+            public int rightHandLocomotionType;
+            public int leftHandTurnStyle;
+            public int rightHandTurnStyle;
+            public int enableStrafe;
+            public int enableComfortMode;
+            public int enableTurnAround;
         }
     }
 }
