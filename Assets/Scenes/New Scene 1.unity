@@ -517,11 +517,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6490028913077362998, guid: 518a44d069e71374b9df5b88884135ce, type: 3}
       propertyPath: fadeOnStart
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6490028913077362998, guid: 518a44d069e71374b9df5b88884135ce, type: 3}
       propertyPath: fadeDuration
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6630153759098319958, guid: 518a44d069e71374b9df5b88884135ce, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
