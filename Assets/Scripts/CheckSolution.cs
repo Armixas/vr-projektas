@@ -11,6 +11,8 @@ public class CheckSolution : MonoBehaviour
     [SerializeField]
     Animator DoorHingeAnimator;
 
+    [SerializeField]
+    AudioSource DoorHingeAudioSource;
 
     List<GameObject> TableItems = new List<GameObject>() {null, null, null, null, null};
 
@@ -52,9 +54,7 @@ public class CheckSolution : MonoBehaviour
         }
         if(solved)
         {
-            // Solution correct, do something
-
-            // Open door, enable level switching
+            DoorHingeAudioSource.Play();
             DoorHingeAnimator.enabled = true;
         }
     }
