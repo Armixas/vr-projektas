@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.SceneManagement;
 
 public class CheckSolution : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class CheckSolution : MonoBehaviour
 
     [SerializeField]
     AudioSource DoorHingeAudioSource;
+
+    [SerializeField]
+    FadeScript fadeScript;
 
     List<GameObject> TableItems = new List<GameObject>() {null, null, null, null, null};
 
@@ -56,8 +60,16 @@ public class CheckSolution : MonoBehaviour
         {
             DoorHingeAudioSource.Play();
             DoorHingeAnimator.enabled = true;
+            StartCoroutine(TransferToMenuRoutine(4));
         }
     }
 
-
+    public IEnumerator TransferToMenuRoutine(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        fadeScript.fadeDuration = 2;
+        fadeScript.FadeOut();
+        yield return new WaitForSeconds(fadeScript.fadeDuration);
+        SceneManager.LoadScene("New Scene 1");
+    }
 }
